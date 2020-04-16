@@ -1,9 +1,11 @@
 sudo: required
 services:
-  - docker
-
+- docker
 before_install:
-  - docker build -t eleroy7/docker-react -f Dockerfile.dev .
-
+- docker build -t eleroy7/docker-react -f Dockerfile.dev .
 script:
-  - docker run eleroy7/docker-react npm run test -- --coverage
+- docker run eleroy7/docker-react npm run test -- --coverage
+deploy:
+  provider: heroku
+  api_key:
+    secure: ZUMme+zm9bfVIslepgYAqMObsveqcGYEUzCisYpYw4SXFRMhjC07XcjJlg9mcwTE+8NTMwtVKB+ElwW2353FbiKUrKJbU1cLobSfegCgBIIjFb2dbgKRbWr3ms+A4tx7Mn7xUPu9ChqR3JmXX7tgp2DaX9yHvavG5vx4oH72BaWcjcQipsvnLUBXIIM5nqHaYR52vw0BKGsWV2wwn6ZXXwdzTu/NBgHljRH5ZDmdH1rGlh2ZKdz+AUhuoDxGi3O4DKOoMq9GGnu7Dng1/CoC5Gf/J40EID4a0qtZXXFc5K7U88DYi3cELEf3SnIu/mTcKH/azD9LhCNvZmHVsULNGLZMj3CEKKUKvKGg7bvp7ppR838tJJwv2I1SwBVBsKkuxWvnn9kCB4SVmvFqx9CEOZE2BkQotW8uE7kcm7P1ON4msTu9PHrCWv2YkHiOQwNwK3zK94pJbIU/lRjKIBJV4/xHzRVhZ9uuetEAn0/PhpXlr0T0UkVUipwwYIdtYZecVUJSNB0jtM60NEgFL3Jy7TpPIyH2onvw0osahvx8FqhTm3jgfqp7SipOWzEuDJzqpdK9US/91TZWZa0O+th1IrRwyLyat5Zsu1IsaA9xy6iWc6Q0bO7ZDFUgzEwsaWIgEeIZGzWfKxPOAnqhSsWDf7BmM60sGcnN5SOMOWGExeg=
